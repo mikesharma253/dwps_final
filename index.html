@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>NYRO | Learn. Measure. Act.</title>
+    <meta name="description" content="Your planet score, level and XP in one place. Learn, measure and act on climate, water and education with NYRO.">
+    <meta name="author" content="Aditya and Praveen">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="home">
+    <a class="skip" href="#app">Skip to content</a>
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="brand" href="index.html" aria-label="NYRO home">
+          <img src="assets/logo.svg" alt="NYRO" width="148" height="110">
+        </a>
+        <nav class="tabs" aria-label="Main">
+          <a class="tab" href="index.html" aria-current="page">Home</a>
+          <a class="tab t-carbon" href="carbon.html">SDG 13</a>
+          <a class="tab t-water" href="water.html">SDG 6</a>
+          <a class="tab t-learn" href="learn.html">SDG 4</a>
+          <a class="tab" href="about.html">About</a>
+        </nav>
+        <div class="xp-pill" aria-label="Level and experience points">
+          <span id="pillLevel">Lv 1</span>
+          <div class="pill-bar"><i id="pillFill"></i></div>
+          <span id="pillXp">0 XP</span>
+        </div>
+      </div>
+    </header>
+    <main id="app" class="wrap">
+      <section class="view">
+        <div class="hero">
+          <h1>I SEE. I CARE.<br><span>I CHANGE.</span></h1>
+          <p class="lead">
+            Climate Action starts with everyday choices. We see a planet full of challenges, 
+            but also possibilities. NYRO brings three global goals together in one place. 
+            Learn something new, understand your impact, and take small steps towards a better future.
+
+
+          </p>
+          <img
+            class="signature"
+            src="assets/signature.png"
+            alt="Aditya x Praveen"
+            width="720"
+            height="168">
+          <ul class="chips" aria-label="Goals addressed">
+            <li class="c-carbon lead-chip"><b>13</b>Climate Action</li>
+            <li class="c-water"><b>6</b>Clean Water and Sanitation</li>
+            <li class="c-learn"><b>4</b>Quality Education</li>
+          </ul>
+        </div>
+        <div class="home-cta">
+          <div class="demo-cta">
+            <button type="button" class="btn solid" id="demoBtn">Try with sample data</button>
+            <span class="muted small" id="demoHint">
+              this stat is for demo. Your own progress is kept safe and comes back when you
+              restore it.
+            </span>
+          </div>
+        </div>
+        <div class="home-grid">
+          <div class="panel score-card">
+            <h2 class="panel-title">YOUR SCOREBOARD</h2>
+            <div class="score-body">
+              <div class="ring big">
+                <svg viewBox="0 0 200 200" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="planetGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#f2f2f2"/>
+                      <stop offset=".5" stop-color="#f2f2f2"/>
+                      <stop offset="1" stop-color="#f2f2f2"/>
+                    </linearGradient>
+                  </defs>
+                  <circle class="ring-track" cx="100" cy="100" r="88"></circle>
+                  <circle
+                    class="ring-fill"
+                    id="planetRing"
+                    cx="100"
+                    cy="100"
+                    r="88"
+                    stroke="url(#planetGrad)"></circle>
+                </svg>
+                <div class="ring-center">
+                  <b id="planetScore">0</b><span id="planetLabel">Just starting</span>
+                </div>
+              </div>
+              <ul class="pillars" id="pillars"></ul>
+            </div>
+          </div>
+          <div class="panel level-card">
+            <h2 class="panel-title">LEVEL AND STAT</h2>
+            <div class="level-row-top">
+              <div class="lvl-num" id="lvlNum">1</div>
+              <div>
+                <h3 id="lvlTitle">BRONZE</h3>
+                <p class="muted small" id="lvlXp">0 / 150 XP to next level</p>
+              </div>
+            </div>
+            <div class="bar"><i id="lvlBar"></i></div>
+            <div class="mini-stats">
+              <div><b id="sXp">0</b><span>XP</span></div>
+              <div><b id="sStreak">0</b><span>Day streak</span></div>
+            </div>
+            <h3 class="sub">XP, last 7 days</h3>
+            <div
+              id="xpChart"
+              role="img"
+              aria-label="Bar chart of XP earned each day for the last seven days"></div>
+          </div>
+        </div>
+        <div class="modules">
+          <article class="module m-carbon anchor">
+            <span class="m-tag">SDG 13</span>
+            <h3>Carbon Lab</h3>
+            <p class="m-stat" id="modCarbon">0.0 t</p>
+            <p class="muted small">Yearly footprint after your pledges.</p>
+            <a class="btn outline" href="carbon.html">Open Carbon Lab</a>
+          </article>
+          <article class="module m-water">
+            <span class="m-tag">SDG 6</span>
+            <h3>Water Tracker</h3>
+            <p class="m-stat" id="modWater">0 L</p>
+            <p class="muted small">Used today against your daily goal.</p>
+            <a class="btn outline" href="water.html">Open Water Usage Tracker</a>
+          </article>
+          <article class="module m-learn">
+            <span class="m-tag">SDG 4</span>
+            <h3>Learn Loop</h3>
+            <p class="m-stat" id="modLearn">0 / 0</p>
+            <p class="muted small">Flashcards flashed in my eyes *o*</p>
+            <a class="btn outline" href="learn.html">Open Learn Leveling</a>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <p class="mono">NYRO - MADE FOR INNOSDG</p>
+      </div>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

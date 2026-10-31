@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Water Tracker (SDG 6) | NYRO</title>
+    <meta name="description" content="Water Tracker: log your daily water use, watch the tank fill and stay under your goal. SDG 6, Clean Water and Sanitation.">
+    <meta name="author" content="Aditya and Praveen">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="water">
+    <a class="skip" href="#app">Skip to content</a>
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="brand" href="index.html" aria-label="NYRO home">
+          <img src="assets/logo.svg" alt="NYRO" width="148" height="110">
+        </a>
+        <nav class="tabs" aria-label="Main">
+          <a class="tab" href="index.html">Home</a>
+          <a class="tab t-carbon" href="carbon.html">SDG 13</a>
+          <a class="tab t-water" href="water.html" aria-current="page">SDG 6</a>
+          <a class="tab t-learn" href="learn.html">SDG 4</a>
+          <a class="tab" href="about.html">About</a>
+        </nav>
+        <div class="xp-pill" aria-label="Level and experience points">
+          <span id="pillLevel">Lv 1</span>
+          <div class="pill-bar"><i id="pillFill"></i></div>
+          <span id="pillXp">0 XP</span>
+        </div>
+      </div>
+    </header>
+    <main id="app" class="wrap">
+    <section class="view c-water">
+      <header class="view-head">
+        <h2>Water Tracker</h2>
+        <p class="lead">Tap what you used today. Watch the tank fill and stay under your daily goal.</p>
+      </header>
+
+      <div class="panel tank-card">
+        <div class="tank">
+          <div class="water" id="wWater"></div>
+          <div class="tank-text">
+            <span id="wUsed">0</span>
+            <small>of <b id="wGoalText">135</b> litres</small>
+          </div>
+        </div>
+        <div class="tank-info">
+          <h3 id="wStatus">Fresh start</h3>
+          <p class="muted" id="wTip">Tap an activity below to begin tracking.</p>
+          <label for="wGoal">Daily goal: <strong id="wGoalVal">135</strong> L</label>
+          <input type="range" id="wGoal" min="50" max="300" step="5" value="135">
+          <div class="row-btns">
+            <button class="btn ghost small" type="button" id="wUndo">Undo last</button>
+            <button class="btn ghost small" type="button" id="wReset">Reset today</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 class="panel-title">What did you use water for? <small class="muted">+3 XP per log</small></h3>
+        <p class="muted small hint-line">Type how many litres under an activity, then tap its name to log it. Use the pencil to rename a card. <button type="button" class="linkbtn" id="wRatesReset">Clear litres and names</button></p>
+        <div class="acts" id="wActs"></div>
+        <h4 class="sub">Or enter your own</h4>
+        <form class="custom" id="wForm" autocomplete="off">
+          <input id="wName" type="text" aria-label="Activity name" placeholder="Activity, e.g. Mopping" maxlength="30" required>
+          <input id="wLitres" type="number" aria-label="Litres used" placeholder="Litres" min="1" max="1000" step="1" required>
+          <button type="submit" class="btn solid">Add</button>
+        </form>
+      </div>
+
+      <div class="two">
+        <div class="panel">
+          <h3 class="panel-title">Today's log</h3>
+          <ul class="log" id="wLog"></ul>
+        </div>
+        <div class="panel">
+          <h3 class="panel-title">Last 7 days</h3>
+          <div class="week" id="wWeek"></div>
+          <p class="muted small">Dashed line is your daily goal. Red bars are days over the goal.</p>
+        </div>
+      </div>
+
+    </section>
+    
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <p class="mono">NYRO - MADE FOR INNOSDG</p>
+      </div>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

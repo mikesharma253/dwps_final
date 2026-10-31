@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Learn Loop (SDG 4) | NYRO</title>
+    <meta name="description" content="Learn Loop: climate and water flashcards that bring back the cards you miss. SDG 4, Quality Education.">
+    <meta name="author" content="Aditya and Praveen">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="learn">
+    <a class="skip" href="#app">Skip to content</a>
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="brand" href="index.html" aria-label="NYRO home">
+          <img src="assets/logo.svg" alt="NYRO" width="148" height="110">
+        </a>
+        <nav class="tabs" aria-label="Main">
+          <a class="tab" href="index.html">Home</a>
+          <a class="tab t-carbon" href="carbon.html">SDG 13</a>
+          <a class="tab t-water" href="water.html">SDG 6</a>
+          <a class="tab t-learn" href="learn.html" aria-current="page">SDG 4</a>
+          <a class="tab" href="about.html">About</a>
+        </nav>
+        <div class="xp-pill" aria-label="Level and experience points">
+          <span id="pillLevel">Lv 1</span>
+          <div class="pill-bar"><i id="pillFill"></i></div>
+          <span id="pillXp">0 XP</span>
+        </div>
+      </div>
+    </header>
+    <main id="app" class="wrap">
+    <section class="view c-learn">
+      <header class="view-head">
+        <h2>Learn Loop</h2>
+        <p class="lead">Flashcards on climate and water. Cards you miss come back more often, so every minute counts.</p>
+      </header>
+
+      <div class="learn-grid">
+        <section class="study">
+          <div class="toolbar">
+            <label for="lDeck">Deck</label>
+            <select id="lDeck"></select>
+            <span class="count" id="lCount"></span>
+          </div>
+
+          <div class="scene">
+            <div class="card3d" id="lCard" tabindex="0" role="button" aria-label="Flip card">
+              <div class="face front">
+                <span class="tag">Question</span>
+                <p id="lQ">Loading...</p>
+                <small class="hint">Click or press Space to reveal</small>
+              </div>
+              <div class="face back">
+                <span class="tag">Answer</span>
+                <p id="lA"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="answer-row">
+            <button class="btn miss" type="button" id="lMiss" disabled>Not yet (Left arrow)</button>
+            <button class="btn hit" type="button" id="lHit" disabled>Knew it (Right arrow)</button>
+          </div>
+          <p class="muted small center-text" id="lLine"></p>
+        </section>
+
+        <aside class="side">
+          <div class="panel">
+            <h3 class="panel-title">Your progress</h3>
+            <div class="stats">
+              <div><b id="lReviewed">0</b><span>Reviewed</span></div>
+              <div><b id="lAccuracy">0%</b><span>Accuracy</span></div>
+              <div><b id="lMastered">0</b><span>Mastered</span></div>
+              <div><b id="lTotal">0</b><span>Total cards</span></div>
+            </div>
+            <h4 class="sub">Cards by level</h4>
+            <div id="lLevels"></div>
+          </div>
+
+          <div class="panel">
+            <h3 class="panel-title">Add a card <small class="muted">+5 XP</small></h3>
+            <form id="lForm" autocomplete="off">
+              <label for="lNewDeck">Deck</label>
+              <input id="lNewDeck" list="lDeckList" placeholder="e.g. Climate" required maxlength="30">
+              <datalist id="lDeckList"></datalist>
+              <label for="lNewQ">Question</label>
+              <textarea id="lNewQ" rows="2" required maxlength="200" placeholder="What is..."></textarea>
+              <label for="lNewA">Answer</label>
+              <textarea id="lNewA" rows="2" required maxlength="300" placeholder="It is..."></textarea>
+              <button type="submit" class="btn solid small full">Add card</button>
+            </form>
+            <p class="msg" id="lMsg"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+    
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <p class="mono">NYRO - MADE FOR INNOSDG</p>
+      </div>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

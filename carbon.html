@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Carbon Lab (SDG 13) | NYRO</title>
+    <meta name="description" content="Carbon Lab: estimate your yearly footprint, compare it with other countries and pledge cuts. SDG 13, Climate Action.">
+    <meta name="author" content="Aditya and Praveen">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="carbon">
+    <a class="skip" href="#app">Skip to content</a>
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="brand" href="index.html" aria-label="NYRO home">
+          <img src="assets/logo.svg" alt="NYRO" width="148" height="110">
+        </a>
+        <nav class="tabs" aria-label="Main">
+          <a class="tab" href="index.html">Home</a>
+          <a class="tab t-carbon" href="carbon.html" aria-current="page">SDG 13</a>
+          <a class="tab t-water" href="water.html">SDG 6</a>
+          <a class="tab t-learn" href="learn.html">SDG 4</a>
+          <a class="tab" href="about.html">About</a>
+        </nav>
+        <div class="xp-pill" aria-label="Level and experience points">
+          <span id="pillLevel">Lv 1</span>
+          <div class="pill-bar"><i id="pillFill"></i></div>
+          <span id="pillXp">0 XP</span>
+        </div>
+      </div>
+    </header>
+    <main id="app" class="wrap">
+    <section class="view c-carbon">
+      <header class="view-head">
+        <h2>Carbon Lab</h2>
+        <p class="lead">Estimate your yearly footprint, then pledge the cuts that matter most.</p>
+      </header>
+
+      <div class="two">
+        <div class="panel">
+          <h3 class="panel-title">Your lifestyle</h3>
+
+          <label for="car">Driving per week: <strong id="carVal">50</strong> km</label>
+          <input type="range" id="car" min="0" max="500" step="5" value="50">
+
+          <label for="flights">Flights per year: <strong id="flightsVal">2</strong></label>
+          <input type="range" id="flights" min="0" max="20" step="1" value="2">
+
+          <label for="power">Electricity per month: <strong id="powerVal">150</strong> kWh</label>
+          <input type="range" id="power" min="0" max="800" step="10" value="150">
+
+          <label for="diet">Your diet</label>
+          <select id="diet">
+            <option value="1">Vegan</option>
+            <option value="1.4">Vegetarian</option>
+            <option value="2">Mixed</option>
+            <option value="2.8">Meat-heavy</option>
+          </select>
+        </div>
+
+        <div class="panel center">
+          <h3 class="panel-title">Yearly footprint after pledges</h3>
+          <div class="ring">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+              <circle class="ring-fill" id="carbonRing" cx="60" cy="60" r="52"></circle>
+            </svg>
+            <div class="ring-center"><b id="carbonTotal">0.0</b><span>tonnes CO2 / year</span></div>
+          </div>
+          <p class="verdict" id="carbonVerdict"></p>
+          <p class="muted small" id="carbonBefore"></p>
+          <div class="bars" id="carbonBars"></div>
+          <p class="compare muted small">Rough references: India average about 2.2 t (2024), world average about 4.7 t, Paris-aligned goal about 2.0 t per person.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 class="panel-title">How countries compare <small id="liveStatus" class="muted"></small></h3>
+        <p class="muted small">Yearly emissions per person in 2024, from Climate TRACE. These cover all greenhouse gases and every sector, so they run higher than the lifestyle estimate above. Use them for scale.</p>
+        <div class="bars" id="liveBars"></div>
+        <p class="muted small">Data: <a href="https://climatetrace.org" target="_blank" rel="noopener">Climate TRACE</a> country rankings (CO2e, 100-year).</p>
+      </div>
+
+      <div class="panel">
+        <h3 class="panel-title">Make a pledge <small id="pledgeNote" class="muted"></small></h3>
+        <p class="muted small">Tick the actions you commit to. Your first time pledging each action earns 15 XP.</p>
+        <ul class="pledges" id="pledgeList"></ul>
+        <div class="saving">You could save <strong id="saving">0.00</strong> t CO2 / year</div>
+      </div>
+    </section>
+    
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <p class="mono">NYRO - MADE FOR INNOSDG</p>
+      </div>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
